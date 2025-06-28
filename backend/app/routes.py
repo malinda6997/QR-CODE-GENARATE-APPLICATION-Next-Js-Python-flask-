@@ -24,3 +24,4 @@ def generate_qr():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+# complete the backend
