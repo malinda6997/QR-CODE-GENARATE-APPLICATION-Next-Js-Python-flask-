@@ -15,13 +15,25 @@ def generate_qr():
         if not data:
             return jsonify({"error": "No text provided"}), 400
 
-        qr = qrcode.make(data)
+        # Create QR code with better error correction
+        qr = qrcode.QRCode(
+            version=1,
+            error_correction=qrcode.constants.ERROR_CORRECT_L,
+            box_size=10,
+            border=4,
+        )
+        qr.add_data(data)
+        qr.make(fit=True)
+
+        # Create QR code image
+        img = qr.make_image(fill_color="black", back_color="white")
+        
+        # Save to buffer
         buffer = io.BytesIO()
-        qr.save(buffer, format="PNG")
+        img.save(buffer, format="PNG")
         buffer.seek(0)
 
-        return send_file(buffer, mimetype="image/png")
+        return send_file(buffer, mimetype="image/png", as_attachment=False)
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-# complete the backend
