@@ -58,7 +58,7 @@ export default function Home() {
         <div className="flex gap-3 mb-6">
           <button
             onClick={generateQR}
-            className="flex-1 bg-blue-600 hover:bg-blue-800 text-white font-semibold py-2 rounded-lg"
+            className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-lg"
             disabled={loading}
           >
             {loading ? "Generating..." : "Generate QR Code"}
