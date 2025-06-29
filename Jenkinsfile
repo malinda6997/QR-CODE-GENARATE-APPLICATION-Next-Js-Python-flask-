@@ -44,7 +44,7 @@ pipeline {
 
     post {
         failure {
-            echo "❌ Deployment failed. Check error logs above."
+            echo " Deployment failed. Check error logs above."
         }
     }
 }
