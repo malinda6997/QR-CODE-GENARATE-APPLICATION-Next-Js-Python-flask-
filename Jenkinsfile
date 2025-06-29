@@ -25,7 +25,7 @@ pipeline {
             }
         }
 
-        stage(' Run Postman Test') {
+        stage(' Run Postman for API Test') {
             steps {
                 dir('backend') {
                     sh 'sleep 5'  // Give Flask app time to boot
