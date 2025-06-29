@@ -7,13 +7,12 @@ pipeline {
         PORT = "5000"
     }
 
-    stages {
+    stage(' Clone Code from GitHub') {
+    steps {
+        git branch: 'main', url: 'https://github.com/malinda6997/QR-CODE-GENARATE-APPLICATION-Next-Js-Python-flask-'
+    }
+}
 
-        stage(' Clone Code from GitHub') {
-            steps {
-                git 'https://github.com/malinda6997/QR-CODE-GENARATE-APPLICATION-Next-Js-Python-flask-' // << UPDATE THIS
-            }
-        }
 
         stage(' Build Docker Image') {
             steps {
