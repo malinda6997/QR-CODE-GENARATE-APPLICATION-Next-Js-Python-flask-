@@ -7,14 +7,14 @@ pipeline {
         PORT = "5000"
     }
 
-    stage(' Clone Code from GitHub') {
-    steps {
-        git branch: 'main', url: 'https://github.com/malinda6997/QR-CODE-GENARATE-APPLICATION-Next-Js-Python-flask-'
-    }
-}
+    stages {  // <<==== මෙතැන stages block එක එකතු කරන්න
+        stage('Clone Code from GitHub') {
+            steps {
+                git branch: 'main', url: 'https://github.com/malinda6997/QR-CODE-GENARATE-APPLICATION-Next-Js-Python-flask-'
+            }
+        }
 
-
-        stage(' Build Docker Image') {
+        stage('Build Docker Image') {
             steps {
                 dir('backend') {
                     sh 'docker stop $CONTAINER_NAME || true'
@@ -25,7 +25,7 @@ pipeline {
             }
         }
 
-        stage(' Run Postman for API Test') {
+        stage('Run Postman for API Test') {
             steps {
                 dir('backend') {
                     sh 'sleep 5'  // Give Flask app time to boot
@@ -34,16 +34,16 @@ pipeline {
             }
         }
 
-        stage(' Success Notification') {
+        stage('Success Notification') {
             steps {
-                echo " QR Code Generator Backend Deployed Successfully on port $PORT!"
+                echo "QR Code Generator Backend Deployed Successfully on port $PORT!"
             }
         }
-    }
+    }  // end of stages block
 
     post {
         failure {
-            echo " Deployment failed. Check error logs above."
+            echo "Deployment failed. Check error logs above."
         }
     }
 }
