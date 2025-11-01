@@ -20,7 +20,7 @@ export default function Home() {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/generate",
+        "http://3.80.40.133/generate",
         { text: url },
         { responseType: "blob" }
       );
