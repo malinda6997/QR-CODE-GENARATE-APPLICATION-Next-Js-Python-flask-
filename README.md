@@ -2,7 +2,7 @@
 
 A modern, full-stack QR Code Generator application built with **Next.js** (Frontend) and **Flask** (Backend), containerized with Docker and automated with Jenkins CI/CD pipeline.
 
-![Project Banner](./images/server.png)
+![Project Banner](./images/frontend1.png)
 
 ## 📋 Table of Contents
 
@@ -58,7 +58,7 @@ A modern, full-stack QR Code Generator application built with **Next.js** (Front
 ```
 ┌─────────────────┐         ┌─────────────────┐
 │   Next.js       │         │   Flask API     │
-│   Frontend      │ ◄────► │   Backend       │
+│   Frontend      │ ◄────►  │   Backend       │
 │   (Port 3000)   │  HTTP   │   (Port 5000)   │
 └─────────────────┘         └─────────────────┘
         │                           │
